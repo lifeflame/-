@@ -17,16 +17,15 @@ casual:临时租赁数量<br>
 registered:会员租赁数量<br>
 count:总租赁数量<br>
 ### 2.数据准备
-import warnings
-warnings.filterwarnings('ignore')
+`fig, axes = plt.subplots(2, 2)
+fig.set_size_inches(12,10)
 
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-sns.set_style('whitegrid')
-from datetime import datetime
+sns.distplot(bike_data['temp'],ax=axes[0,0])
+sns.distplot(bike_data['atemp'],ax=axes[0,1])
+sns.distplot(bike_data['humidity'],ax=axes[1,0])
+sns.distplot(bike_data['windspeed'],ax=axes[1,1])
 
-#读取数据
-train = pd.read_csv('C:/Users/17372/Desktop/train.csv')
-test = pd.read_csv('C:/Users/17372/Desktop/test.csv')
+axes[0,0].set(xlabel='temp',title='Distribution of temp',)
+axes[0,1].set(xlabel='atemp',title='Distribution of atemp')
+axes[1,0].set(xlabel='humidity',title='Distribution of humidity')
+axes[1,1].set(xlabel='windspeed',title='Distribution of windspeed')`
